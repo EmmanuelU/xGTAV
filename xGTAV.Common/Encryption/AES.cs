@@ -26,7 +26,7 @@ namespace xGTAV.Common.Encryption
         private static ICryptoTransform decryptor;
 
         //GTA V key
-        public static byte[] gtaKey;
+        public static byte[] gtaKey = null;
 
         public static byte[] Decrypt(byte[] data, int numRounds)
         {
@@ -40,7 +40,10 @@ namespace xGTAV.Common.Encryption
                 aes.Padding = PaddingMode.Zeros;
                 decryptor = aes.CreateDecryptor();
             }
-            decryptor.TransformBlock(data, 0, numRounds , data, 0);
+            for (int i = 0; i < numRounds; i++)
+            {
+                decryptor.TransformBlock(data, 0, (data.Length / 16) * 16, data, 0);
+            }
             return data;
         }
 
