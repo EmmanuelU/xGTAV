@@ -48,7 +48,7 @@
     <Compile Include="xMemoryStream.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\xGTAV.Common.csproj">
+    <ProjectReference Include="..\xGTAV.Common\xGTAV.Common.csproj">
       <Project>{ED6FD07A-9043-4453-BD45-1AA68F8102F1}</Project>
       <Name>xGTAV.Common</Name>
     </ProjectReference>
